@@ -1,0 +1,152 @@
+.inputFields::-webkit-outer-spin-button,
+.inputFields::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inputFields[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Html tags id's*/
+
+#component{
+  width: 28%;
+  height: 60%;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form{
+  width: 80%;
+  height: 80%;
+  background: transparent;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+/* dynamic tag classes */
+
+.labelField{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.question-mark{
+  height: 12px;
+  width: 12px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.inputparent{
+  width: 100%;
+  height: 100%;
+  position: relative;  
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.inputFields,
+.inputFields select {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: 1px solid gray;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  height: 35px;
+  padding-left: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+
+}
+
+
+.inputFields select::-ms-expand {
+  display: none;
+}
+
+.inputFields select {
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  appearance: none;
+  background-image: url('path_to_your_dropdown_arrow_image');
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 15px; 
+}
+
+.excla-mark{
+  position: absolute; 
+  right: 25px;
+  top: 26%; 
+}
+
+.subBtn {
+  margin-top: 10px;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+
+/* media query */
+
+
+@media (max-width: 500px) {
+    #component{
+      width: 80vw;
+    }
+ }
+
+
+ @media (min-width: 501px) and (max-width: 640px){
+    #component{
+      width: 65vw;
+    }
+ } 
+
+ @media (min-width: 641px) and (max-width: 850px){
+    #component{
+      width: 52vw;
+    }
+ } 
+
+ @media (min-width: 851px) and (max-width: 1050px){
+  #component{
+    width: 45vw;
+  }
+} 
+
+@media (min-width: 1051px) and (max-width: 1282px){
+  #component{
+    width: 45vw;
+  }
+} 
