@@ -17,14 +17,14 @@ body{
   padding: 0;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   align-items: center;
 }
 
 /* Html tags id's*/
 
 #component{
-  width: 28%;
+  width: 30%;
   height: 60%;
   border: 2px solid black;
   display: flex;
@@ -53,11 +53,12 @@ body{
 }
 
 .question-mark{
-  height: 12px;
-  width: 12px;
-  margin-left: 2px;
+  height: 13px;
+  width: 13px;
+  margin-left: 4px;
   cursor: pointer;
 }
+
 
 .inputparent{
   width: 100%;
@@ -75,6 +76,7 @@ body{
   width: 100%;
   background: transparent;
   border: 1px solid gray;
+  border-radius: 3px;
   margin-top: 4px;
   margin-bottom: 6px;
   height: 35px;
@@ -87,6 +89,7 @@ body{
   outline: none;
 
 }
+
 
 
 .inputFields select::-ms-expand {
@@ -103,50 +106,147 @@ body{
   padding-right: 15px; 
 }
 
-.excla-mark{
-  position: absolute; 
-  right: 25px;
-  top: 26%; 
+#inputField:invalid .excla-mark {
+  display: block;
 }
+
+#inputField:valid .excla-mark {
+  display: none;
+}
+
+.excla-mark {
+  position: absolute;
+  right: 0;  
+  top: 30%;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5vw;
+  background: url('assets/symbol-exclamation-mark-svgrepo-com.svg') no-repeat center;
+  background-size: contain;
+  display: none; 
+}
+
+
+
+.excla-mark:hover::after {
+  content: "Please enter numbers only";
+  position: absolute;
+  top: -55px;
+  width: 120px;
+  font-size: smaller;
+  right: -40px;
+  background: rgb(160, 160, 160);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.excla-mark:hover::after {
+  opacity: 1; 
+}
+
+
 
 .subBtn {
   margin-top: 10px;
   width: 100%;
   padding-top: 8px;
+  cursor: pointer;
   padding-bottom: 8px;
+  background-color: rgb(94, 94, 201);
+  color: white;
+  border-radius: 5px;
+  border: transparent;
 }
+
+#modal {
+  display: none;
+  position: absolute;
+  background: white;
+  height: 50%;
+  width: 70%;
+  padding: 0;
+  text-align: center;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#modalContentWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+#modal h1, #modal h3, #modal p {
+  margin: 0.1em 0; /* Adjust this value to your liking */
+}
+
+
+#close-modal{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: transparent;
+  cursor: pointer;
+  border: transparent;
+  outline: none;
+  height: 10px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.svg-x{
+  height: 13px;
+
+}
+
+
 
 
 /* media query */
 
 
 @media (max-width: 500px) {
-    #component{
-      width: 80vw;
-    }
- }
-
-
- @media (min-width: 501px) and (max-width: 640px){
-    #component{
-      width: 65vw;
-    }
- } 
-
- @media (min-width: 641px) and (max-width: 850px){
-    #component{
-      width: 52vw;
-    }
- } 
-
- @media (min-width: 851px) and (max-width: 1050px){
-  #component{
-    width: 45vw;
+  #component {
+    width: 80vw;
   }
-} 
-
-@media (min-width: 1051px) and (max-width: 1282px){
-  #component{
-    width: 45vw;
+  .excla-mark:hover::after {
+    top: -50px;
+    width: 90px;
+    font-size: smaller;
+    right: -14vw;
   }
-} 
+}
+
+@media (min-width: 501px) and (max-width: 640px) {
+  #component {
+    width: 65vw;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 850px) {
+  #component {
+    width: 52vw;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 1282px) {
+  #component {
+    width: 42vw; 
+  }
+}
+
+
+
