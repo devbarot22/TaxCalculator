@@ -5,25 +5,27 @@
 }
 
 /* Firefox */
+
+
 .inputFields[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-body{
+body {
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   align-items: center;
 }
 
 /* Html tags id's*/
 
-#component{
+#component {
   width: 30%;
   height: 60%;
   border: 2px solid black;
@@ -33,26 +35,27 @@ body{
   align-items: center;
 }
 
-#form{
+#form {
   width: 80%;
   height: 80%;
   background: transparent;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 /* dynamic tag classes */
 
-.labelField{
+.labelField {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: flex-start;
+  position: relative;
 }
 
-.question-mark{
+.question-mark {
   height: 13px;
   width: 13px;
   margin-left: 4px;
@@ -60,13 +63,13 @@ body{
 }
 
 
-.inputparent{
+.inputparent {
   width: 100%;
   height: 100%;
-  position: relative;  
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .inputFields,
@@ -87,9 +90,7 @@ body{
   justify-content: center;
   align-items: center;
   outline: none;
-
 }
-
 
 
 .inputFields select::-ms-expand {
@@ -97,14 +98,20 @@ body{
 }
 
 .inputFields select {
-  -webkit-appearance: none; 
-  -moz-appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background-image: url('path_to_your_dropdown_arrow_image');
   background-repeat: no-repeat;
   background-position: right center;
-  padding-right: 15px; 
+  padding-right: 15px;
 }
+
+
+
+/* exclamation mark css */
+
+
 
 #inputField:invalid .excla-mark {
   display: block;
@@ -116,15 +123,16 @@ body{
 
 .excla-mark {
   position: absolute;
-  right: 0;  
+  right: 0;
   top: 30%;
   width: 16px;
   height: 16px;
   margin-right: 0.5vw;
   background: url('assets/symbol-exclamation-mark-svgrepo-com.svg') no-repeat center;
   background-size: contain;
-  display: none; 
+  display: none;
 }
+
 
 
 
@@ -135,7 +143,7 @@ body{
   width: 120px;
   font-size: smaller;
   right: -40px;
-  background: rgb(160, 160, 160);
+  background-color: #36454F;
   color: #fff;
   padding: 5px;
   border-radius: 5px;
@@ -144,9 +152,12 @@ body{
 }
 
 .excla-mark:hover::after {
-  opacity: 1; 
+  opacity: 1;
 }
 
+
+
+/* submit button */
 
 
 .subBtn {
@@ -161,12 +172,110 @@ body{
   border: transparent;
 }
 
+
+/* question-mark tooltip
+ */
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipQ {
+  top: -50px;
+  left: 0%;
+  font-size: smaller;
+  transform: translateX(-38%);
+  z-index: 9999;
+  position: fixed;
+}
+
+
+.tooltipQ::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 38%;
+  margin-left: -5px;
+  margin-top: 5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltipQ .tooltiptextQ {
+  padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+
+
+/* exclamation mark tooltip */
+
+.inputFields[label="Enter age group"] {
+  position: relative;
+}
+
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999; 
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  height: 20px;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 999;
+  top: 1%;
+  left: calc(50%);
+  margin-left: -30px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* modal css */
+
+
 #modal {
   display: none;
   position: absolute;
   background: white;
   height: 50%;
-  width: 70%;
+  width: 50%;
   padding: 0;
   text-align: center;
   border: 2px solid black;
@@ -176,7 +285,7 @@ body{
   flex-direction: column;
 }
 
-#modalContentWrapper{
+#modalContentWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,12 +294,14 @@ body{
 }
 
 
-#modal h1, #modal h3, #modal p {
-  margin: 0.1em 0; /* Adjust this value to your liking */
+#modal h1,
+#modal h3,
+#modal p {
+  margin: 0.1em 0;
 }
 
 
-#close-modal{
+#close-modal {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -207,9 +318,11 @@ body{
   text-align: center;
 }
 
-.svg-x{
-  height: 13px;
 
+/* the close button on modal pop-up */
+
+.svg-x {
+  height: 13px;
 }
 
 
@@ -222,17 +335,76 @@ body{
   #component {
     width: 80vw;
   }
+
+  #modal{
+    width: 70vw;
+  }
+
   .excla-mark:hover::after {
     top: -50px;
     width: 90px;
     font-size: smaller;
     right: -14vw;
   }
+
+  .tooltipQ {
+    width: 100vw;
+    transform: translateX(-50vw);
+    left: 10vw;
+  }
+
+
+  .tooltipQ2 {
+    transform: translateX(-20vw);
+  }
+
+  .tooltipQ2::after {
+    left: 20% !important;
+  }
+
+  .tooltipQ3 {
+    transform: translateX(-30vw);
+  }
+
+  .tooltipQ3::after {
+    content: "";
+    left: 30% !important;
+  }
+
+  .tooltipQ::after {
+    left: 50%;
+  }
+
+  .tooltipQ4 {
+    transform: translateX(-70vw);
+  }
+
+  .tooltipQ4::after {
+    left: 70%;
+  }
+
+
 }
 
 @media (min-width: 501px) and (max-width: 640px) {
   #component {
     width: 65vw;
+  }
+
+  #modal{
+    width: 80vw;
+  }
+
+  .tooltipQ1{
+    width: 100%;
+  }
+  
+  .tooltipQ4{
+    width: 100%;
+  }
+  
+  .tooltipQ3{
+    width: 100%;
   }
 }
 
@@ -240,13 +412,14 @@ body{
   #component {
     width: 52vw;
   }
+
+  #modal{
+    width: 80vw;
+  }
 }
 
 @media (min-width: 851px) and (max-width: 1282px) {
   #component {
-    width: 42vw; 
+    width: 42vw;
   }
 }
-
-
-
