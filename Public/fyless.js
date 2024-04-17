@@ -4,7 +4,7 @@
 const formFields = [
   { label: 'Enter gross annual income', placeholder: 'Enter gross annual income', type: 'text', tooltip: 'Annual income reflects pre-deduction earnings' },
   { label: 'Enter extra income', placeholder: 'Enter extra income from other sources', type: 'text', tooltip: 'More moolah on top of your salary dough!' },
-  { label: 'Enter age group', placeholder: '', type: 'select', options: ['Select Your Age Group', 'age < 40', 'age ≥ 40 & < 60', 'age ≥ 60'], tooltip: 'Age groups: where tax rates get sassy with the classy!' },
+  { label: 'Select age group', placeholder: '', type: 'select', options: ['Select Your Age Group', 'age < 40', 'age ≥ 40 & < 60', 'age ≥ 60'], tooltip: 'Age groups: where tax rates get sassy with the classy!' },
   { label: 'Enter total applicable deductions', placeholder: 'Add total applicable deduction', type: 'text', tooltip: 'Total deductions: Giving your taxes a break, not your paycheck!' },
   { label: '', type: 'submit' }
 ];
