@@ -1,12 +1,33 @@
 // buiding UI dynamically
-
-
 const formFields = [
-  { label: 'Enter gross annual income', placeholder: 'Enter gross annual income', type: 'text', tooltip: 'Annual income reflects pre-deduction earnings' },
-  { label: 'Enter extra income', placeholder: 'Enter extra income from other sources', type: 'text', tooltip: 'More moolah on top of your salary dough!' },
-  { label: 'Select age group', placeholder: '', type: 'select', options: ['Select Your Age Group', 'age < 40', 'age ≥ 40 & < 60', 'age ≥ 60'], tooltip: 'Age groups: where tax rates get sassy with the classy!' },
-  { label: 'Enter total applicable deductions', placeholder: 'Add total applicable deduction', type: 'text', tooltip: 'Total deductions: Giving your taxes a break, not your paycheck!' },
-  { label: '', type: 'submit' }
+  {
+    label: 'Enter gross annual income',
+    placeholder: 'Enter gross annual income',
+    type: 'text',
+    tooltip: 'Annual income reflects pre-deduction earnings'
+  },
+  {
+    label: 'Enter extra income',
+    placeholder: 'Enter extra income from other sources',
+    type: 'text',
+    tooltip: 'More moolah on top of your salary dough!'
+  },
+  {
+    label: 'Select age group', placeholder: '',
+    type: 'select',
+    options: ['Select Your Age Group', 'age < 40', 'age ≥ 40 & < 60', 'age ≥ 60'],
+    tooltip: 'Age groups: where tax rates get sassy with the classy!'
+  },
+  {
+    label: 'Enter total applicable deductions',
+    placeholder: 'Add total applicable deduction',
+    type: 'text',
+    tooltip: 'Total deductions: Giving your taxes a break, not your paycheck!'
+  },
+  {
+    label: '',
+    type: 'submit'
+  }
 ];
 
 
@@ -35,46 +56,55 @@ for (const [index, field] of formFields.entries()) {
     form.appendChild(submit);
   }
   else {
+    const labelParent = document.createElement('div');
+    labelParent.className = 'labelP'
+
     const label = document.createElement('label');
     label.textContent = field.label;
     label.className = 'labelField';
 
+    labelParent.appendChild(label);
 
+    // Create the tooltip container
     const tooltipContainer = document.createElement('div');
     tooltipContainer.className = 'tooltip-container';
 
+    // Create the question mark image
     const questionMark = document.createElement('img');
     questionMark.className = 'question-mark';
-    questionMark.src = 'assets/question-mark-button-svgrepo-com.svg';
+    questionMark.src = 'assets/question-mark-button-svgrepo-com.svg'; // Adjust path if needed
     questionMark.alt = 'info mark';
 
+    // Create the tooltip element
     const tooltip = document.createElement('div');
     tooltip.className = `tooltipQ tooltipQ${index + 1}`;
-    tooltip.innerHTML = `<span class="tooltiptextQ" style="background: #36454F">${field.tooltip}</span>`;
+    tooltip
+    tooltip.innerHTML = `<span class="tooltiptextQ" style="background:transparent">${field.tooltip}</span>`;
     tooltip.style.display = 'none';
 
-
-
-
-
+    // Add elements to the container and label
     tooltipContainer.appendChild(questionMark);
     tooltipContainer.appendChild(tooltip);
-
     label.appendChild(tooltipContainer);
 
     let tooltipTimeout;
 
-
-    // question mark mouseover event
-
+    // Question mark mouseover event (for tooltip)
     questionMark.addEventListener('mouseover', () => {
       clearTimeout(tooltipTimeout);
       tooltipTimeout = setTimeout(() => {
         const rect = questionMark.getBoundingClientRect();
-
-        tooltip.style.top = `${rect.top - tooltip.offsetHeight - 30}px`;
+        tooltip.style.top = `${rect.top - tooltip.offsetHeight - 50}px`; // Adjust positioning as needed
         tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
         tooltip.style.display = 'block';
+      }, 200);
+    });
+
+    // Question mark mouseout event (for tooltip)
+    questionMark.addEventListener('mouseout', () => {
+      clearTimeout(tooltipTimeout);
+      tooltipTimeout = setTimeout(() => {
+        tooltip.style.display = 'none';
       }, 200);
     });
 
@@ -129,7 +159,7 @@ for (const [index, field] of formFields.entries()) {
 
     inputContainer.appendChild(warning);
     inputWrapper.appendChild(inputContainer);
-    form.appendChild(label);
+    form.appendChild(labelParent);
     form.appendChild(inputWrapper);
   }
 }
@@ -278,7 +308,7 @@ function createModal() {
 
   closeButton.id = 'close-modal';
   closeButton.innerHTML = `<img src="./assets/x-close-delete-svgrepo-com.svg" alt="Close">`;
-  closeButton.style.cursor = 'pointer';
+  closeButton.style.cursor = 'pointer'
 
 
   modalContentWrapper.appendChild(closeButton);
@@ -296,3 +326,8 @@ function createModal() {
 
   return modal;
 }
+
+document.querySelector('input').addEventListener('focus', function() {
+  this.scrollIntoView({ behavior: 'smooth' });
+});
+document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`);

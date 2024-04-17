@@ -47,19 +47,25 @@ body {
 
 /* dynamic tag classes */
 
-.labelField {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-start;
+.labelP {
   position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.labelField {
+  position: absolute;
+  font-size: 0.9rem;
 }
 
 .question-mark {
-  height: 13px;
-  width: 13px;
+  height: 14px;
+  width: 14px;
   margin-left: 4px;
   cursor: pointer;
+  position: absolute;
 }
 
 
@@ -178,29 +184,38 @@ body {
 
 .tooltip-container {
   position: relative;
-  display: inline-block;
+  margin-bottom: 10px;
+  display: inline;
+  z-index: 999;
 }
 
 .tooltipQ {
-  top: -50px;
+  top: 50px;
   left: 0%;
-  font-size: smaller;
-  transform: translateX(-38%);
-  z-index: 9999;
+  transform: translateX(-50%);
   position: fixed;
+  z-index: 9999;
+  background-color: #555;
+  padding: 10px 15px;
+  border-radius: 7px;
 }
-
 
 .tooltipQ::after {
   content: "";
   position: absolute;
   top: 100%;
-  left: 38%;
+  left: 50%;
   margin-left: -5px;
-  margin-top: 5px;
+  margin-top: 1px;
   border-width: 5px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+}
+
+.tooltiptextQ {
+  font-size: 0.8rem;
+  padding: 20px 25px;
+  white-space: normal;
 }
 
 .tooltipQ .tooltiptextQ {
@@ -224,7 +239,7 @@ body {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 999; 
+  z-index: 999;
 }
 
 .tooltip::after {
@@ -278,6 +293,7 @@ body {
   width: 50%;
   padding: 0;
   text-align: center;
+  z-index: 999;
   border: 2px solid black;
   display: flex;
   justify-content: center;
@@ -331,12 +347,62 @@ body {
 /* media query */
 
 
-@media (max-width: 500px) {
+@media (max-width: 420px) {
+
   #component {
     width: 80vw;
   }
 
-  #modal{
+  #modal {
+    width: 70vw;
+  }
+
+
+
+  .tooltipQ1 {
+    transform: translateY(-40%) translateX(-83%) !important;
+  }
+
+  .tooltipQ1::after {
+    left: 83% !important;
+  }
+
+  .tooltipQ2 {
+    transform: translateY(-25%) translateX(-47%) !important;
+  }
+
+  .tooltipQ2::after {
+    left: 47% !important;
+  }
+
+  .tooltipQ3 {
+    transform: translateY(-25%) translateX(-34%) !important;
+  }
+
+  .tooltipQ3::after {
+    left: 34% !important;
+  }
+
+  .tooltipQ::after {
+    left: 50%;
+  }
+
+  .tooltipQ4 {
+    transform: translateY(-70%) translateX(-90%) !important;
+  }
+
+  .tooltipQ4::after {
+    left: 90% !important;
+  }
+}
+
+
+@media (min-width: 421px) and (max-width: 500px) {
+  #component {
+    width: 80vw;
+  }
+
+  #modal {
     width: 70vw;
   }
 
@@ -348,27 +414,33 @@ body {
   }
 
   .tooltipQ {
-    width: 100vw;
-    transform: translateX(-50vw);
-    left: 10vw;
+    width: 50vw;
+    /* transform: translateX(-50vw); */
+    /* left: 10vw; */
   }
 
+  .tooltipQ1 {
+    transform: translateY(0%) translateX(-60%) !important;
+  }
+
+  .tooltipQ1::after {
+    left: 60% !important;
+  }
 
   .tooltipQ2 {
-    transform: translateX(-20vw);
+    transform: translateY(0%) translateX(-50%) !important;
   }
 
   .tooltipQ2::after {
-    left: 20% !important;
+    left: 50% !important;
   }
 
   .tooltipQ3 {
-    transform: translateX(-30vw);
+    transform: translateY(-25%) translateX(-50%) !important;
   }
 
   .tooltipQ3::after {
-    content: "";
-    left: 30% !important;
+    left: 50% !important;
   }
 
   .tooltipQ::after {
@@ -376,11 +448,11 @@ body {
   }
 
   .tooltipQ4 {
-    transform: translateX(-70vw);
+    transform: translateY(-25%) translateX(-50%) !important;
   }
 
   .tooltipQ4::after {
-    left: 70%;
+    left: 50%;
   }
 
 
@@ -391,21 +463,22 @@ body {
     width: 65vw;
   }
 
-  #modal{
+  #modal {
     width: 80vw;
   }
 
-  .tooltipQ1{
-    width: 100%;
+  .tooltipQ3 {
+    transform: translateY(-30%) translateX(-50%) !important;
   }
-  
-  .tooltipQ4{
-    width: 100%;
+
+  .tooltipQ1 {
+    transform: translateY(-25%) translateX(-50%) !important;
   }
-  
-  .tooltipQ3{
-    width: 100%;
+
+  .tooltipQ4 {
+    transform: translateY(-25%) translateX(-50%) !important;
   }
+
 }
 
 @media (min-width: 641px) and (max-width: 850px) {
@@ -413,7 +486,7 @@ body {
     width: 52vw;
   }
 
-  #modal{
+  #modal {
     width: 80vw;
   }
 }
