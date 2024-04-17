@@ -206,7 +206,7 @@ form.addEventListener('submit', function (event) {
   const income = parseIncome(document.querySelector('.inputFields[name="Enter gross annual income"]').value) || 0;
   const extraIncome = parseIncome(document.querySelector('.inputFields[name="Enter extra income"]').value) || 0;
   const deductions = parseIncome(document.querySelector('.inputFields[name="Enter total applicable deductions"]').value) || 0;
-  const ageGroupField = document.querySelector('.inputFields[name="Enter age group"]');
+  const ageGroupField = document.querySelector('.inputFields[name="Select age group"]');
   const ageGroup = ageGroupField.value;
 
   if (ageGroup === 'Select Your Age Group') {
@@ -278,7 +278,7 @@ function createModal() {
 
   closeButton.id = 'close-modal';
   closeButton.innerHTML = `<img src="./assets/x-close-delete-svgrepo-com.svg" alt="Close">`;
-  closeButton.style.cursor = 'pointer'
+  closeButton.style.cursor = 'pointer';
 
 
   modalContentWrapper.appendChild(closeButton);
