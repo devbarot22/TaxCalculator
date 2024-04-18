@@ -149,6 +149,7 @@ for (const [index, field] of formFields.entries()) {
       inputContainer.appendChild(select);
     } else {
       const input = document.createElement('input');
+      input.onresize = 'Adjust';
       input.type = field.type;
       input.className = "inputFields"
       input.name = field.label;
