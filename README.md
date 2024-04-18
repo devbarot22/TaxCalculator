@@ -10,11 +10,44 @@ Welcome to the Tax Calculator WebApp! This project showcases my ability to creat
 
 ## Getting Started
 
-To run the Tax Calculator WebApp locally, follow these steps:
+Clone the repository:
 
-1. Clone this repository to your local machine.
-2. Open the `index.html` file in your preferred web browser.
-3. Input your financial details and get instant tax estimates!
+bash
+...
+
+git clone https://github.com/devbarot22/TaxCalculator.git
+
+...
+
+
+
+Navigate to the project directory:
+
+bash
+...
+
+cd TaxCalculator
+
+...
+
+Open the index.html file:
+You can do this by double-clicking on the index.html file in your file explorer or by opening it through your code editor.
+
+View the application in your web browser:
+Once you've opened the index.html file, your default web browser should launch automatically and display the web application. If it doesn't, you can manually open your web browser and enter the following URL in the address bar:
+
+ruby
+
+'''
+
+start index.html //for window users
+
+open index.html //for mac users
+
+...
+
+Interact with the application:
+You should now be able to interact with the web application in your browser. Explore its features and functionalities as desired.
 
 ## Usage
 
@@ -29,6 +62,27 @@ To run the Tax Calculator WebApp locally, follow these steps:
 - HTML
 - CSS
 - JavaScript
+
+## Test Case 
+
+Enter gross income below 8 lakhs (e.g., 6 lakhs).
+Click "Calculate Tax".
+Expected: No tax applied, overall income reflects gross income.
+Tax Calculation (Age < 40):
+
+Enter gross income exceeding 8 lakhs (e.g., 10 lakhs).
+Select age group "< 40".
+Click "Calculate Tax".
+Expected: 30% tax applied on income exceeding 8 lakh limit, overall income reflects deduction after tax.
+Empty Age Selection:cause error and will ask for select age
+
+Enter valid values in other fields.
+Leave age group selection empty.
+Click "Calculate Tax".
+Expected: Error icon appears on select input asking 'please select age group'.
+
+Have Added M and K representing Million and Thousand for user Convenience.
+
 
 ## Contributing
 
